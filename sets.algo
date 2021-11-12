@@ -1,8 +1,8 @@
-ALGORITHM algorithm_name
+ALGORITHM  sum_distinct_elements
 VAR
     set1,set2: : ARRAY_OF Integer[50];
 hashtable:HASH_TABLE<Integer,Integer>
-i,j:INTEGER=0
+i,j,sum:INTEGER:=0
 BEGIN
  read(set1)
  read(set2)
@@ -25,9 +25,11 @@ FOR i FROM 0 TO set1.length STEP 1  DO
  sum=sum+set1[i]
  END_FOR
 FOR i FROM 0 TO set1.length STEP 1  DO
- if(hashtable.get(set2[j]==1)DO
+ if(hashtable.get(set2[j]==1)THEN
  sum=sum+set2[j]
+ BREAK;
+ END_IF
  END_FOR 
-
+  Write ("Sum of all distinct elements:",sum)
 
 END

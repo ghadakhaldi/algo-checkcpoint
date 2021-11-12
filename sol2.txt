@@ -1,0 +1,28 @@
+ALGORITHM sum_distinct_elements
+VAR 
+    sum,i,j:INTEGER:=0;
+    tab1,tab2 : ARRAY_OF INTEGER[];
+
+BEGIN
+ Read(tab1)
+ Read(tab2)
+FOR i FROM 0 TO tab1.length-1 DO
+ j:=0;
+   WHILE ((j <= tab2.length-1) and (tab1[i]<>tab2[j])) DO
+           j := j+1;
+   END_WHILE
+   IF (j = tab2.length) THEN  
+      sum := sum + tab1[i];
+   END_IF
+END_FOR
+FOR i FROM 0 TO tab2.length-1 DO
+ j:=0;
+   WHILE (j <= tab1.length-1 and tab2[i]<>tab1[j]) DO
+        j := j+1;
+   END_WHILE
+   IF (j = tab1.length) THEN  
+      sum := sum + tab2[i];
+   END_IF
+END_FOR
+ Write ("Sum of all distinct elements:",sum)
+END
